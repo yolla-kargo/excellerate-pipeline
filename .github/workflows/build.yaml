@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Build docker
         run: |
-          docker build -t kargotech/excellerate-pipeline/python
+          docker build -f python/Dockerfile
       - name: Push docker
         run: |
           docker tag temp/build yollafrdl/excellerate:latest
