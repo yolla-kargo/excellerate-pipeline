@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Build docker
         run: |
-          docker build https://github.com/yolla-kargo/excellerate-pipeline/blob/master/node
+          docker build github.com/yolla-kargo/excellerate-pipeline/blob/master/python
       - name: Push docker
         run: |
           docker tag temp/build yollafrdl/excellerate:latest
