@@ -19,7 +19,7 @@ jobs:
           path: "python/requirements.txt"
       - name: Build docker
         run: |
-          docker build -t yolla-kargo/excellerate-pipeline/python .
+          docker build -t yolla-kargo/excellerate-pipeline/python
       - name: Push docker
         run: |
           docker tag temp/build yollafrdl/excellerate:latest
