@@ -3,10 +3,9 @@ FROM python:3.8-alpine
 RUN mkdir /app
 WORKDIR /app
 
-COPY requirements.txt ./
+COPY python/requirements.txt /app/
 RUN pip install -r requirements.txt
 
-COPY . ./
+COPY . /app
 
-EXPOSE 8080
 CMD ["python", "app.py"]
