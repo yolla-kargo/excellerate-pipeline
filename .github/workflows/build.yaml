@@ -1,11 +1,24 @@
 ---
 name: Run Unit Tests
 
-on: push
+on: 
+  push :
+    branches :
+      - master
 
 jobs:
-  test:
+  build:
+    runs-on: ubuntu-latest
     name: Test Application
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Build docker
+        run: |
+          docker build -t temp/build 
+      - name: Push docker
+        run: |
+          docker tag temp/build yollafrdl/excellerate:latest
+          docker tag temp/build yollafrdl/excellerate:${{ github.sha }}
+          docker push yollafrdl/excellerate:latest
+          docker push yollafrdl/excellerate:${{ github.sha }}
