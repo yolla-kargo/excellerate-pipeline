@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: install python library
+        uses: py-actions/py-dependency-install@v3
+        with:
+          path: "python/requirements.txt"
       - name: Build docker
         run: |
           docker build -f python/Dockerfile -t temp/build .
